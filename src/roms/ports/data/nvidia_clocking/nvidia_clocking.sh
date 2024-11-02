@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# adjust constants to match other gpu_type / clock speed / paths etc.
 function constants() {
     source .data/nvidia_clocking/config.sh
 }

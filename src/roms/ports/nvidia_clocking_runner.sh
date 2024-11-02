@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# adjust constants to match other paths/colors etc
 function constants() {
     export DISPLAY=:0.0
     source .data/nvidia_clocking/config.sh
