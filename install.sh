@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -Eeuo pipefail
+
 method_counter=0
 
 function check_architecture() {
