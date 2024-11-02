@@ -121,6 +121,7 @@ function cleanup() {
     fi
 
     echo "################ D O N E ################"
+    echo ""
     sleep 1
 }
 
@@ -137,7 +138,8 @@ function main() {
         echo "not all required methods have been run - ABORTING"
         exit 1
     else
-        echo "installation successful - adjust $TARGET_BASEDIR/.data/nvidia_clocking/config.sh to fit your needs"
+        echo "installation successful"
+        echo "adjust $TARGET_BASEDIR/.data/nvidia_clocking/config.sh to fit your needs"
         exit 0
     fi
 }
