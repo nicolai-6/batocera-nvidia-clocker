@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function constants() {
-    source .data/nvidia_clocking/config.sh
+    source /userdata/roms/ports/.data/nvidia_clocking/config.sh
 }
 
 # print desired values that script expects
@@ -44,7 +44,7 @@ clock_gpu() {
 
     if [[ $DETECTED_GPU_TYPE == $EXPECTED_GPU_TYPE ]]
     then
-        echo -e "${GREEN}GPU TYPE CORRECT - UNDERCLOCKING NOW"
+        echo -e "${GREEN}GPU TYPE CORRECT - CLOCKING NOW"
         sleep 3
         # for some reason if command is run normally the runner script crashes - so we redirect output to file
         $NVIDIA_SMI -lgc $GPU_CLOCK_MIN,$GPU_CLOCK_MAX > $NVIDIA_SMI_LGC_LOG

@@ -2,7 +2,7 @@
 
 function constants() {
     export DISPLAY=:0.0
-    source .data/nvidia_clocking/config.sh
+    source /userdata/roms/ports/.data/nvidia_clocking/config.sh
 }
 
 # provide xterm copy in /tmp
