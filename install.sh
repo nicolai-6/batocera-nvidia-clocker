@@ -5,7 +5,7 @@ method_counter=0
 function check_architecture() {
     if [ $(uname -m) != "x86_64" ]
     then
-        echo "architecture check failed - this is not a "x86_64 based system" - aborting"
+        echo "architecture check failed - this is not a x86_64 based system - aborting"
         exit 1
     fi
 }
