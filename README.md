@@ -32,7 +32,7 @@
 
 * to properly fill in ``` EXPECTED_GPU_TYPE ``` query your GPU with nvidia-smi
 
-    ``` /userdata/roms/ports/.data/nvidia_clocking/nvidia-smi --query-gpu=gpu_name --format=csv,noheader```
+    ```/userdata/roms/ports/.data/nvidia_clocking/nvidia-smi --query-gpu=gpu_name --format=csv,noheader```
 
 ### run it
 * update batocera gamelists (GAME SETTINGS > UPDATE GAMELISTS)
