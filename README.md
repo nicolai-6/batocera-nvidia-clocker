@@ -15,7 +15,7 @@
 * make sure your internet connection is working
 * run two terminal commands from batocera (F1->applications->xterm) or via SSH to install it
 
-    ``` 
+    ```
     curl -o /tmp/install.sh https://raw.githubusercontent.com/nicolai-6/batocera-nvidia-clocking/refs/heads/main/install.sh
     bash /tmp/install.sh
     ```
