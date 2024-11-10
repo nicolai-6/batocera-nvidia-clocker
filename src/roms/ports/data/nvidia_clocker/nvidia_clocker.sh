@@ -65,7 +65,7 @@ function main() {
     if [ $# -eq 0 ]
     then
         echo "something went wront"
-        exit 0
+        exit 1
     fi
 
     # constants are always required
