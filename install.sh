@@ -13,7 +13,7 @@ function check_architecture() {
 function constants() {
     REPO_URL="https://github.com/nicolai-6/batocera-nvidia-clocker/archive/refs/heads/main.zip"
     ARTIFACT_TMP_PATH=/tmp/batocera-nvidia-clocker.zip
-    ARTIFACT_EXTRACTED_TMP_PATH="/tmp/batocera-nvidia-clocker-main/src/roms/ports/data/nvidia_clocker"
+    ARTIFACT_EXTRACTED_TMP_PATH="/tmp/batocera-nvidia-clocker-main"
     TARGET_BASEDIR="/userdata/roms/ports"
 }
 
@@ -33,7 +33,7 @@ function download_artifact() {
 
 function extract_artifact() {
     echo "############ Extracting zip archive ############"
-    unzip -qq -o $ARTIFACT_TMP_PATH
+    unzip -qq -o $ARTIFACT_TMP_PATH -d /tmp/
     if [ $? -ne 0 ]
     then
         echo "Extracting the archive went wrong - aborting"
@@ -62,16 +62,16 @@ function setup() {
 
     echo "############ copying required files ############"
     # provide image
-    cp $ARTIFACT_EXTRACTED_TMP_PATH/roms/ports/images/nvidia_clocker.png $TARGET_BASEDIR/images/
+    cp $ARTIFACT_EXTRACTED_TMP_PATH/src/roms/ports/images/nvidia_clocker.png $TARGET_BASEDIR/images/
 
     if [ $? -ne 0 ]
     then
-        echo "copying the image failed - but we continue with installation anyway"
+        echo "copying the image failed - trying to continue with installation anyway"
         exit 0
     fi
 
     # provide .data scripts
-    cp $ARTIFACT_EXTRACTED_TMP_PATH/roms/ports/data/nvidia_clocker/config.sh $TARGET_BASEDIR/.data/nvidia_clocker/
+    cp $ARTIFACT_EXTRACTED_TMP_PATH/src/roms/ports/data/nvidia_clocker/config.sh $TARGET_BASEDIR/.data/nvidia_clocker/
 
     if [ $? -ne 0 ]
     then
@@ -79,7 +79,7 @@ function setup() {
         exit 1
     fi
 
-    cp $ARTIFACT_EXTRACTED_TMP_PATH/roms/ports/data/nvidia_clocker/nvidia_clocker.sh $TARGET_BASEDIR/.data/nvidia_clocker/
+    cp $ARTIFACT_EXTRACTED_TMP_PATH/src/roms/ports/data/nvidia_clocker/nvidia_clocker.sh $TARGET_BASEDIR/.data/nvidia_clocker/
 
     if [ $? -ne 0 ]
     then
@@ -88,7 +88,7 @@ function setup() {
     fi
 
     # provide nvidia-smi
-    cp $ARTIFACT_EXTRACTED_TMP_PATH/roms/ports/data/nvidia_clocker/nvidia-smi $TARGET_BASEDIR/.data/nvidia_clocker/
+    cp $ARTIFACT_EXTRACTED_TMP_PATH/src/roms/ports/data/nvidia_clocker/nvidia-smi $TARGET_BASEDIR/.data/nvidia_clocker/
 
     if [ $? -ne 0 ]
     then
@@ -97,7 +97,7 @@ function setup() {
     fi
 
     # provide the ports runner script
-    cp $ARTIFACT_EXTRACTED_TMP_PATH/roms/ports/nvidia_clocker_runner.sh $TARGET_BASEDIR/
+    cp $ARTIFACT_EXTRACTED_TMP_PATH/src/roms/ports/nvidia_clocker_runner.sh $TARGET_BASEDIR/
 
     if [ $? -ne 0 ]
     then
@@ -113,8 +113,13 @@ function setup() {
 function cleanup() {
     echo "############ finally cleaning up ############"
     rm -rf $ARTIFACT_TMP_PATH
-    rm -rf ${ARTIFACT_TMP_PATH::-4}-main
+    if [ $? -ne 0 ]
+    then
+        echo "cleaning up resource went wrong - installation could be ok anyway"
+        exit 1
+    fi
 
+    rm -rf ${ARTIFACT_TMP_PATH::-4}-main
     if [ $? -ne 0 ]
     then
         echo "cleaning up resource went wrong - installation could be ok anyway"
