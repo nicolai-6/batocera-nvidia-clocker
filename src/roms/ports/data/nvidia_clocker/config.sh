@@ -14,7 +14,7 @@ BLUE='\033[1;34m'
 
 #### dependencies
 XTERM_TMP_FILE="/tmp/xterm_runner"
-BASEDIR="/userdata/roms/ports/.data/nvidia_clocking"
+BASEDIR="/userdata/roms/ports/.data/nvidia_clocker"
 NVIDIA_SMI="$BASEDIR/nvidia-smi"
 NVIDIA_SMI_LGC_LOG="$BASEDIR/nvidia_smi_lgc.log"
 NVIDIA_SMI_CLOCKS_LOG="$BASEDIR/nvidia_smi_clocks.log"

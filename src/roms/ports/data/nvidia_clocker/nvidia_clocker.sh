@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function constants() {
-    source /userdata/roms/ports/.data/nvidia_clocking/config.sh
+    source /userdata/roms/ports/.data/nvidia_clocker/config.sh
 }
 
 # print desired values that script expects

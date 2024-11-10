@@ -11,14 +11,15 @@ function check_architecture() {
 }
 
 function constants() {
-    REPO_URL="https://github.com/nicolai-6/batocera-nvidia-clocking/archive/refs/heads/main.zip"
-    artifact_TMP_PATH=/tmp/batocera-nvidia-clocking.zip
+    REPO_URL="https://github.com/nicolai-6/batocera-nvidia-clocker/archive/refs/heads/main.zip"
+    ARTIFACT_TMP_PATH=/tmp/batocera-nvidia-clocker.zip
+    ARTIFACT_EXTRACTED_TMP_PATH="/tmp/batocera-nvidia-clocker-main/src/roms/ports/data/nvidia_clocker"
     TARGET_BASEDIR="/userdata/roms/ports"
 }
 
 function download_artifact() {
     echo "############ Trying to download repo content ############"
-    wget -q --no-check-certificate --no-cache --no-cookies -O "$artifact_TMP_PATH" "$REPO_URL"
+    wget -q --no-check-certificate --no-cache --no-cookies -O "$ARTIFACT_TMP_PATH" "$REPO_URL"
     if [ $? -ne 0 ]
     then
         echo "Downloading repo content failed - aborting"
@@ -32,7 +33,7 @@ function download_artifact() {
 
 function extract_artifact() {
     echo "############ Extracting zip archive ############"
-    unzip -qq -o $artifact_TMP_PATH
+    unzip -qq -o $ARTIFACT_TMP_PATH
     if [ $? -ne 0 ]
     then
         echo "Extracting the archive went wrong - aborting"
@@ -46,12 +47,12 @@ function extract_artifact() {
 
 function setup() {
     # create dir
-    echo "############ Creating $TARGET_BASEDIR/.data/nvidia_clocking dir ############"
-    mkdir -p $TARGET_BASEDIR/.data/nvidia_clocking
+    echo "############ Creating $TARGET_BASEDIR/.data/nvidia_clocker dir ############"
+    mkdir -p $TARGET_BASEDIR/.data/nvidia_clocker
 
     if [ $? -ne 0 ]
     then
-        echo "Could not create $TARGET_BASEDIR/.data/nvidia_clocking dir - aborting"
+        echo "Could not create $TARGET_BASEDIR/.data/nvidia_clocker dir - aborting"
         exit 1
     fi
 
@@ -61,7 +62,7 @@ function setup() {
 
     echo "############ copying required files ############"
     # provide image
-    cp /tmp/batocera-nvidia-clocking-main/src/roms/ports/images/nvidia_clocking.png $TARGET_BASEDIR/images/
+    cp $ARTIFACT_EXTRACTED_TMP_PATH/roms/ports/images/nvidia_clocker.png $TARGET_BASEDIR/images/
 
     if [ $? -ne 0 ]
     then
@@ -70,7 +71,7 @@ function setup() {
     fi
 
     # provide .data scripts
-    cp /tmp/batocera-nvidia-clocking-main/src/roms/ports/data/nvidia_clocking/config.sh $TARGET_BASEDIR/.data/nvidia_clocking/
+    cp $ARTIFACT_EXTRACTED_TMP_PATH/roms/ports/data/nvidia_clocker/config.sh $TARGET_BASEDIR/.data/nvidia_clocker/
 
     if [ $? -ne 0 ]
     then
@@ -78,16 +79,16 @@ function setup() {
         exit 1
     fi
 
-    cp /tmp/batocera-nvidia-clocking-main/src/roms/ports/data/nvidia_clocking/nvidia_clocking.sh $TARGET_BASEDIR/.data/nvidia_clocking/
+    cp $ARTIFACT_EXTRACTED_TMP_PATH/roms/ports/data/nvidia_clocker/nvidia_clocker.sh $TARGET_BASEDIR/.data/nvidia_clocker/
 
     if [ $? -ne 0 ]
     then
-        echo "copying nvidia_clocking.sh went wrong - aborting"
+        echo "copying nvidia_clocker.sh went wrong - aborting"
         exit 1
     fi
 
     # provide nvidia-smi
-    cp /tmp/batocera-nvidia-clocking-main/src/roms/ports/data/nvidia_clocking/nvidia-smi $TARGET_BASEDIR/.data/nvidia_clocking/
+    cp $ARTIFACT_EXTRACTED_TMP_PATH/roms/ports/data/nvidia_clocker/nvidia-smi $TARGET_BASEDIR/.data/nvidia_clocker/
 
     if [ $? -ne 0 ]
     then
@@ -96,7 +97,7 @@ function setup() {
     fi
 
     # provide the ports runner script
-    cp /tmp/batocera-nvidia-clocking-main/src/roms/ports/nvidia_clocking_runner.sh $TARGET_BASEDIR/
+    cp $ARTIFACT_EXTRACTED_TMP_PATH/roms/ports/nvidia_clocker_runner.sh $TARGET_BASEDIR/
 
     if [ $? -ne 0 ]
     then
@@ -111,8 +112,8 @@ function setup() {
 
 function cleanup() {
     echo "############ finally cleaning up ############"
-    rm -rf $artifact_TMP_PATH
-    rm -rf ${artifact_TMP_PATH::-4}-main
+    rm -rf $ARTIFACT_TMP_PATH
+    rm -rf ${ARTIFACT_TMP_PATH::-4}-main
 
     if [ $? -ne 0 ]
     then
@@ -139,7 +140,7 @@ function main() {
         exit 1
     else
         echo "installation successful"
-        echo "adjust $TARGET_BASEDIR/.data/nvidia_clocking/config.sh to fit your needs"
+        echo "adjust $TARGET_BASEDIR/.data/nvidia_clocker/config.sh to fit your needs"
         exit 0
     fi
 }

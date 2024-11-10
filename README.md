@@ -1,4 +1,4 @@
-# batocera-nvidia-clocking
+# batocera-nvidia-clocker
 
 ## Providing a tiny nvidia-smi wrapper script to make nvidia GPU clock adjustments
 ### facts
@@ -16,12 +16,12 @@
 * run two terminal commands from batocera (F1->applications->xterm) or via SSH to install it
 
     ```
-    curl -o /tmp/install.sh https://raw.githubusercontent.com/nicolai-6/batocera-nvidia-clocking/refs/heads/main/install.sh
+    curl -o /tmp/install.sh https://raw.githubusercontent.com/nicolai-6/batocera-nvidia-clocker/refs/heads/main/install.sh
     bash /tmp/install.sh
     ```
 
 ### modify
-* after initial setup adjust /userdata/roms/ports/.data/nvidia_clocking/config.sh
+* after initial setup adjust /userdata/roms/ports/.data/nvidia_clocker/config.sh
 * normally you only want to adjust three values here
 
     ``` GPU_CLOCK_MIN=1500 ```
@@ -32,24 +32,24 @@
 
 * to properly fill in ``` EXPECTED_GPU_TYPE ``` query your GPU with nvidia-smi
 
-    ```/userdata/roms/ports/.data/nvidia_clocking/nvidia-smi --query-gpu=gpu_name --format=csv,noheader```
+    ```/userdata/roms/ports/.data/nvidia_clocker/nvidia-smi --query-gpu=gpu_name --format=csv,noheader```
 
 ### run it
 * update batocera gamelists (GAME SETTINGS > UPDATE GAMELISTS)
 * Run from Emulationstation:
-    * navigate to PORTS and run ``` NVIDIA_CLOCKING_RUNNER ```
+    * navigate to PORTS and run ``` NVIDIA_CLOCKER_RUNNER ```
 * Run from terminal:
-    * /userdata/roms/ports/nvidia_clocking_runner.sh
+    * /userdata/roms/ports/nvidia_clocker_runner.sh
 
 ### appendix
 * Add Image
     * Via gamelist.xml
-        * adjust NVIDIA_CLOCKING_RUNNER image in ``` /userdata/roms/ports/gamelist.xml ``` - Update batocera gameslists before
+        * adjust NVIDIA_CLOCKER_RUNNER image in ``` /userdata/roms/ports/gamelist.xml ``` - Update batocera gameslists before
     * Via emulationstation
-        * Edit this Game's Metadata > Image > Pick nvidia_clocking.png
+        * Edit this Game's Metadata > Image > Pick nvidia_clocker.png
 * Manual cleanup via terminal
-    * remove /userdata/roms/ports/nvidia_clocking_runner.sh
-    * remove /userdata/roms/ports/.data/nvidia_clocking directory
+    * remove /userdata/roms/ports/nvidia_clocker_runner.sh
+    * remove /userdata/roms/ports/.data/nvidia_clocker directory
 
 </br>
 </br>
