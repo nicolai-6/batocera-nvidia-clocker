@@ -16,7 +16,7 @@ function constants() {
     ARTIFACT_EXTRACTED_TMP_PATH="/tmp/batocera-nvidia-clocker-main"
     TARGET_BASEDIR="/userdata/roms/ports"
 }
-y
+
 function download_artifact() {
     echo "############ Trying to download repo content ############"
     wget -q --no-check-certificate --no-cache --no-cookies -O "$ARTIFACT_TMP_PATH" "$REPO_URL"
