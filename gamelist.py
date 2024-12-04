@@ -44,12 +44,12 @@ def main():
     image = './images/nvidia_clocker.png'
 
     if not in_gamelist(xml_filepath, name):
-        sys.stdout.write(f"modifying {xml_filepath}\n")
+        sys.stdout.write(f"############ modifying {xml_filepath} ############\n")
         modify_gamelist(xml_filepath, path, name, image)
-        sys.stdout.write("#### D O N E ####\n")
+        sys.stdout.write("################ D O N E ################\n")
     else:
-        sys.stdout.write(f"{xml_filepath} already contains an element named: {name}\n")
-        sys.stdout.write(f"{xml_filepath} will not be modified\n")
+        sys.stdout.write(f"############ {xml_filepath} already contains an element named: {name}############\n")
+        sys.stdout.write(f"############ {xml_filepath} will not be modified ############\n")
 
 if __name__ == '__main__':
     main()
