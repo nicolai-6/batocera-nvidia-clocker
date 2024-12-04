@@ -16,7 +16,7 @@ function constants() {
     ARTIFACT_EXTRACTED_TMP_PATH="/tmp/batocera-nvidia-clocker-main"
     TARGET_BASEDIR="/userdata/roms/ports"
 }
-
+y
 function download_artifact() {
     echo "############ Trying to download repo content ############"
     wget -q --no-check-certificate --no-cache --no-cookies -O "$ARTIFACT_TMP_PATH" "$REPO_URL"
@@ -110,6 +110,10 @@ function setup() {
     sleep 1
 }
 
+function modify_gamelist() {
+    python gamelist.py
+}
+
 function cleanup() {
     echo "############ finally cleaning up ############"
     rm -rf $ARTIFACT_TMP_PATH
@@ -132,14 +136,14 @@ function cleanup() {
 }
 
 function main() {
-    
-    for method in {check_architecture,constants,download_artifact,extract_artifact,setup,cleanup}
+
+    for method in {check_architecture,constants,download_artifact,extract_artifact,setup,modify_gamelist,cleanup}
     do
         $method
         ((method_counter++))
     done
 
-    if [[ $method_counter < 6 ]]
+    if [[ $method_counter < 7 ]]
     then
         echo "not all required methods have been run - ABORTING"
         exit 1
