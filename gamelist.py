@@ -48,7 +48,7 @@ def main():
         modify_gamelist(xml_filepath, path, name, image)
         sys.stdout.write("################ D O N E ################\n")
     else:
-        sys.stdout.write(f"############ {xml_filepath} already contains an element named: {name}############\n")
+        sys.stdout.write(f"############ {xml_filepath} already contains an element named: {name} ############\n")
         sys.stdout.write(f"############ {xml_filepath} will not be modified ############\n")
 
 if __name__ == '__main__':
