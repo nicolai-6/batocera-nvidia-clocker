@@ -153,7 +153,7 @@ function main() {
         echo "Run GAME SETTINGS -> UPDATE GAMELISTS"
         sleep 2
         echo "...Trying to detect your NVIDIA GPU now"
-        echo "Put output string to $TARGET_BASEDIR/.data/nvidia_clocker/config.sh 'EXPECTED_GPU_TYPE'"
+        echo "...Put output string to $TARGET_BASEDIR/.data/nvidia_clocker/config.sh 'EXPECTED_GPU_TYPE'"
         $TARGET_BASEDIR/.data/nvidia_clocker/nvidia-smi --query-gpu=gpu_name --format=csv,noheader
         exit 0
     fi
