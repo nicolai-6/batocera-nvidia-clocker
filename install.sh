@@ -151,6 +151,8 @@ function main() {
         echo "installation successful"
         echo "adjust $TARGET_BASEDIR/.data/nvidia_clocker/config.sh to fit your needs"
         echo "Run GAME SETTINGS -> UPDATE GAMELISTS"
+        echo "Trying to detect your NVIDIA GPU - Put output string to $TARGET_BASEDIR/.data/nvidia_clocker/config.sh"
+        $TARGET_BASEDIR/.data/nvidia_clocker/nvidia_clocker.sh check_gpu
         exit 0
     fi
 }
