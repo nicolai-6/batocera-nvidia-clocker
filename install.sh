@@ -151,7 +151,9 @@ function main() {
         echo "installation successful"
         echo "adjust $TARGET_BASEDIR/.data/nvidia_clocker/config.sh to fit your needs"
         echo "Run GAME SETTINGS -> UPDATE GAMELISTS"
-        echo "Trying to detect your NVIDIA GPU - Put output string to $TARGET_BASEDIR/.data/nvidia_clocker/config.sh"
+        sleep 2
+        echo "...Trying to detect your NVIDIA GPU now"
+        echo "Put output string to $TARGET_BASEDIR/.data/nvidia_clocker/config.sh 'EXPECTED_GPU_TYPE'"
         $TARGET_BASEDIR/.data/nvidia_clocker/nvidia-smi --query-gpu=gpu_name --format=csv,noheader
         exit 0
     fi
