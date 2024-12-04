@@ -49,7 +49,7 @@ def main():
         sys.stdout.write("################ D O N E ################\n")
     else:
         sys.stdout.write(f"############ {xml_filepath} already contains an element named: {name} ############\n")
-        sys.stdout.write(f"############ {xml_filepath} will not be modified ############\n")
+        sys.stdout.write(f"############ {xml_filepath} will not be modified ############\n\n")
 
 if __name__ == '__main__':
     main()
