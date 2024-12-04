@@ -7,7 +7,6 @@
 * limited to x86_x64
 * shipping x86_x64 nvidia-smi version 560.35.03
 * changes made to clock speeds are NOT permanent and will be reverted with every batocera shutdown / reboot
-* gamelist.xml image handling not implemented yet - has to be done manually (check out appendix)
 * default config.sh hard limits a NVIDIA RTX A2000 12GB GPU clock speeds to 1500 (min and max) - see the modify instruction to adjust it to your needs
 
 ### Install
@@ -42,11 +41,6 @@
     * /userdata/roms/ports/nvidia_clocker_runner.sh
 
 ### appendix
-* Add Image
-    * Via gamelist.xml
-        * adjust NVIDIA_CLOCKER_RUNNER image in ``` /userdata/roms/ports/gamelist.xml ``` - Update batocera gameslists before
-    * Via emulationstation
-        * Edit this Game's Metadata > Image > Pick nvidia_clocker.png
 * Manual cleanup via terminal
     * remove /userdata/roms/ports/nvidia_clocker_runner.sh
     * remove /userdata/roms/ports/.data/nvidia_clocker directory
