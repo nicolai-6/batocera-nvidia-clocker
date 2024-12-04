@@ -111,7 +111,7 @@ function setup() {
 }
 
 function modify_gamelist() {
-    python gamelist.py
+    python $ARTIFACT_EXTRACTED_TMP_PATH/gamelist.py
 }
 
 function cleanup() {
