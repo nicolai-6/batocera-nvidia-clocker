@@ -152,7 +152,7 @@ function main() {
         echo "adjust $TARGET_BASEDIR/.data/nvidia_clocker/config.sh to fit your needs"
         echo "Run GAME SETTINGS -> UPDATE GAMELISTS"
         echo "Trying to detect your NVIDIA GPU - Put output string to $TARGET_BASEDIR/.data/nvidia_clocker/config.sh"
-        $TARGET_BASEDIR/.data/nvidia_clocker/nvidia_clocker.sh check_gpu
+        $TARGET_BASEDIR/.data/nvidia_clocker/nvidia-smi --query-gpu=gpu_name --format=csv,noheader
         exit 0
     fi
 }
