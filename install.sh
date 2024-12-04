@@ -150,6 +150,7 @@ function main() {
     else
         echo "installation successful"
         echo "adjust $TARGET_BASEDIR/.data/nvidia_clocker/config.sh to fit your needs"
+        echo "Run GAME SETTINGS -> UPDATE GAMELISTS"
         exit 0
     fi
 }
