@@ -3,7 +3,7 @@
 ## Providing a tiny nvidia-smi wrapper script to make nvidia GPU clock adjustments
 ### facts
 * can be run from batocera terminal, SSH or via emulationstation ports section
-* only tested on batocera v39
+* only tested on batocera v39 and v40
 * limited to x86_x64
 * shipping x86_x64 nvidia-smi version 560.35.03
 * changes made to clock speeds are NOT permanent and will be reverted with every batocera shutdown / reboot
