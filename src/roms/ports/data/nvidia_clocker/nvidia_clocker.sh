@@ -90,7 +90,7 @@ function clock_gpu() {
 
 function main() {
     # if script is run without parameter we quit
-    if [ $# -eq 0 ]
+    if [[ $# -eq 0 ]]
     then
         echo "something went wront"
         return 1

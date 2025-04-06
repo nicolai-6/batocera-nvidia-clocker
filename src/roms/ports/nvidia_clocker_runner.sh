@@ -36,20 +36,20 @@ function main() {
     echo -e \"\n${WHITE}CHECKING NVIDIA-SMI\"; \
     sleep 1; \
     echo -e \"$($BASEDIR/nvidia_clocker.sh check_smi)\"; \
-    if [ $? == 1 ]; then echo -e \"${RED}A B O R T I N G . . .\"; sleep 5; exit 1; \
+    if [[ $? == 1 ]]; then echo -e \"${RED}A B O R T I N G . . .\"; sleep 5; exit 1; \
     else echo -e \"${WHITE}NVIDIA-SMI CHECK PASSED \xE2\x9C\x94\"; fi ; \
     sleep 3; \
 
     echo -e \"\n${WHITE}TRYING TO DETECT INSTALLED NVIDIA GPU TYPE\"; \
     echo -e \"$($BASEDIR/nvidia_clocker.sh check_gpu_type)\"; \
-    if [ $? == 1 ]; then echo -e \"${RED}A B O R T I N G . . .\"; sleep 5; exit 1; \
+    if [[ $? == 1 ]]; then echo -e \"${RED}A B O R T I N G . . .\"; sleep 5; exit 1; \
     else echo -e \"${WHITE}GPU CHECK PASSED \xE2\x9C\x94\"; fi ; \
     sleep 3; \
 
     echo -e \"\n${WHITE}FINALLY ATTEMPTING TO CLOCK GPU\"; \
     sleep 1; \
     echo -e \"$($BASEDIR/nvidia_clocker.sh clock_gpu)\"; \
-    if [ $? == 1 ]; then echo -e \"${RED}A B O R T I N G . . .\"; sleep 5; exit 1; \ 
+    if [[ $? == 1 ]]; then echo -e \"${RED}A B O R T I N G . . .\"; sleep 5; exit 1; \ 
     else echo -e \"${WHITE}GPU CLOCKING DONE \xE2\x9C\x94 \n\"; fi ; \
     
     echo -e \"${WHITE}PRINTING CLOCKING LOGS\"; \
