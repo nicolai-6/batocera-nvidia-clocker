@@ -20,7 +20,7 @@
     ```
 
 ### modify
-* after initial setup adjust /userdata/roms/ports/.data/nvidia_clocker/config.sh
+* after initial installation adjust /userdata/roms/ports/.data/nvidia_clocker/config.sh
 * normally you only want to adjust three values here
 
     ``` GPU_CLOCK_MIN=1500 ```
