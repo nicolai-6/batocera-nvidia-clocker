@@ -47,6 +47,4 @@
     * remove from Ports gamelist either via emulationstation or gamelist.xml
 
 </br>
-</br>
-
-# HAPPY CLOCKING
+## HAPPY CLOCKING
