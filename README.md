@@ -1,6 +1,6 @@
 # batocera-nvidia-clocker
 
-## Providing a tiny nvidia-smi wrapper script to make nvidia GPU clock adjustments
+## Providing a tiny nvidia-smi wrapper script to make NVIDIA GPU clock adjustments in batocera
 ### facts
 * can be run from batocera terminal, SSH or via emulationstation ports section
 * only tested on batocera v39, v40 and v41
@@ -10,7 +10,7 @@
 * default config.sh hard limits a NVIDIA RTX A2000 12GB GPU clock speeds to 1500 (min and max) - see the modify instruction to adjust it to your needs
 
 ### Install
-* make sure batocera has properly loaded nvidia-driver
+* make sure batocera has properly loaded the nvidia driver
 * make sure your internet connection is working
 * run two terminal commands from batocera (F1->applications->xterm) or via SSH to install it
 
@@ -45,6 +45,6 @@
     * remove /userdata/roms/ports/nvidia_clocker_runner.sh
     * remove /userdata/roms/ports/.data/nvidia_clocker directory
     * remove from Ports gamelist either via emulationstation or gamelist.xml
-
 </br>
+
 ## HAPPY CLOCKING
